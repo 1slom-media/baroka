@@ -17,7 +17,7 @@ const Page = () => {
           variant="body2"
           sx={{ color: "#7A7A7A", fontWeight: "bold", mt: 3 }}
         >
-          Dozen.uz - sayti orqali mahsulotlar, tovarlar sotish va xizmat
+          chegirma.com - sayti orqali mahsulotlar, tovarlar sotish va xizmat
           ko&apos;rsatish bo&apos;yicha.
         </Typography>
         <Typography

@@ -67,7 +67,7 @@ const StyledInputBase = ({ uid }) => {
       variant="outlined"
       size="medium"
       fullWidth
-      value={`https://dozen.uz/oqim/${uid}`}
+      value={`https://chegirma.com/oqim/${uid}`}
       disabled
       sx={{ height: 42 }}
     />

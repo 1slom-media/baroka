@@ -54,7 +54,7 @@ const Page = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Dozen marketing</title>
+        <title>Chegirma marketing</title>
       </Head>
       <Stack>
         <Stack direction="row" alignItems="center" mb={2} gap="5px">

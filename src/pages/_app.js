@@ -60,7 +60,7 @@ const MyApp = ({ Component, pageProps: { ...pageProps } }) => {
         />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <title>Dozen | ONLINE BOZOR</title>
+        <title>Chegirma | ONLINE BOZOR</title>
       </Head>
       <ReduxProvider store={store}>
         <PersistGate persistor={persistor}>

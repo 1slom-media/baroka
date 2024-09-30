@@ -103,7 +103,7 @@ const StreamCard = ({
           </Typography>
           <Box my={1} mt={3}>
             <TextInput
-              value={`https://dozen.uz/oqim/${number}`}
+              value={`https://chegirma.com/oqim/${number}`}
               inputProps={{
                 sx: {
                   color: "rgba(255, 255, 255, 0.8)",
@@ -139,7 +139,7 @@ const StreamCard = ({
           >
             Statistika
           </Button>
-          <CopyToClipboard text={`https://dozen.uz/oqim/${number}`}>
+          <CopyToClipboard text={`https://chegirma.com/oqim/${number}`}>
             <Button
               color="primary"
               startIcon={<CopyOutlined />}

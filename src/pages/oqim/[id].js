@@ -170,7 +170,7 @@ const Page = ({ product, stream }) => {
                         },
                       }}
                     >
-                      Dozen
+                      Chegirma
                     </Typography>
                   </Stack>
                   <Stack

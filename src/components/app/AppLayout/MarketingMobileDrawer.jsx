@@ -204,7 +204,7 @@ export default function MarketingMobileDrawer() {
                 color="text.whiteOff"
                 component="div"
               >
-                DOZEN
+                Chegirma
               </Typography>
               <IconButton
                 sx={{ marginRight: "15px" }}

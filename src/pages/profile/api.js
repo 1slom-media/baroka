@@ -162,12 +162,12 @@ const Page = () => {
                 <Typography
                   mt={1}
                   component="a"
-                  href="https://dozen.uz/api/v4/order"
+                  href="https://chegirma.com/api/v4/order"
                   color="text.whiteOff"
                 >
                   API orqali buyurtmalar{" "}
                   <span style={{ color: "#08cf65" }}>
-                    https://dozen.uz/api/v4/order
+                    https://chegirma.com/api/v4/order
                   </span>{" "}
                   manziliga POST so&#39;rovi orqali yuborilishi mumkin.
                 </Typography>
@@ -180,12 +180,12 @@ const Page = () => {
                       <b>stream</b>- Market bo&#39;limidan oqim yaratganingizdan
                       so&#39;ng sizga{"   "}
                       <span style={{ color: "#08cf65" }}>
-                        https://dozen.uz/oqim/450
+                        https://chegirma.com/oqim/450
                       </span>{" "}
                       ko&#39;rinishida link taqdim etiladi shu linkdagi{" "}
                       <b>450</b> sizga tegishli bo&#39;lgan oqim raqami
                       hisoblanadi (<b>Eslatma:</b> Ushbu{" "}
-                      <b>https://dozen.uz/oqim/345</b> shunchaki misol sifatida
+                      <b>https://chegirma.com/oqim/345</b> shunchaki misol sifatida
                       kiritilgan xar safar oqim yaratganingizda xar bir mahsulot
                       uchun alohida <b>stream</b> raqam beriladi.). Aynan shu
                       raqamni stream qismiga kiritishingiz kerak bo&#39;ladi. Bu
@@ -213,7 +213,7 @@ const Page = () => {
                 </Typography>
                 <Box>
                   <SyntaxHighLighter language="javascript" style={dracula}>
-                    {`curl --location 'https://dozen.uz/api/v4/order' \nMETHOD - POST \n --data '{\n  "name": "Farrux",\n  "phone": "+99895656555s",\n  "stream": 340\n}'`}
+                    {`curl --location 'https://chegirma.com/api/v4/order' \nMETHOD - POST \n --data '{\n  "name": "Farrux",\n  "phone": "+99895656555s",\n  "stream": 340\n}'`}
                   </SyntaxHighLighter>
                 </Box>
               </Stack>

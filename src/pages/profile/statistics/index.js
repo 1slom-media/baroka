@@ -87,7 +87,7 @@ const Page = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Dozen marketing</title>
+        <title>Chegirma marketing</title>
       </Head>
       <Stack mb={3}>
         <Stack

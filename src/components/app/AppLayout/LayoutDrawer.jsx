@@ -259,7 +259,7 @@ export default function LayoutDrawer({ children }) {
             sx={{ flexGrow: 1, ...(open && { color: "transparent" }) }}
             component="div"
           >
-            DOZEN
+            Chegirma
           </Typography>
 
           <Stack alignItems="center" pr={3} direction="row">
@@ -301,7 +301,7 @@ export default function LayoutDrawer({ children }) {
                 color="text.whiteOff"
                 component="div"
               >
-                DOZEN
+                Chegirma
               </Typography>
             </Stack>
           </DrawerHeader>

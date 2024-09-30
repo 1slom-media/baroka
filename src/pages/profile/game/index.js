@@ -37,7 +37,7 @@ const Page = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Dozen.uz konkurslar</title>
+        <title>chegirma.com konkurslar</title>
       </Head>
       <Stack>
         <Typography mb={2} variant="string" color="text.white">

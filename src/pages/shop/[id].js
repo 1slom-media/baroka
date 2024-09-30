@@ -193,7 +193,7 @@ const Page = ({ product }) => {
                     },
                   }}
                 >
-                  Dozen
+                  Chegirma
                 </Typography>
               </Stack>
               <Stack

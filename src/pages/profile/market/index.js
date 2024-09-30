@@ -46,7 +46,7 @@ const Page = () => {
   return (
     <AdminLayout isDifferentSearch>
       <Head>
-        <title>Dozen marketing</title>
+        <title>Chegirma marketing</title>
       </Head>
 
       <Box

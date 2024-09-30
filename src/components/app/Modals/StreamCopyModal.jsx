@@ -28,7 +28,7 @@ const style = {
 export default function StreamCopyModal({ isOpen, setOpen }) {
   const data = useSelector((state) => state.createdStream.data.data);
   const [copy, setCopy] = React.useState({
-    value: `https://dozen.uz/oqim/${data?.number}`,
+    value: `https://chegirma.uz/oqim/${data?.number}`,
     copied: false,
   });
 
@@ -44,7 +44,7 @@ export default function StreamCopyModal({ isOpen, setOpen }) {
   React.useEffect(() => {
     setCopy({
       ...copy,
-      value: `https://dozen.uz/oqim/${data?.number}`,
+      value: `https://chegirma.com/oqim/${data?.number}`,
     });
   }, [data?.number]);
   return (
@@ -64,7 +64,7 @@ export default function StreamCopyModal({ isOpen, setOpen }) {
             variant="outlined"
             size="medium"
             fullWidth
-            value={`https://dozen.uz/oqim/${data?.number}`}
+            value={`https://chegirma.com/oqim/${data?.number}`}
             disabled
             sx={{ height: 44, background: "#eee" }}
             endAdornment={

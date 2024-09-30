@@ -74,7 +74,7 @@ const Page = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Dozen marketing</title>
+        <title>Chegirma marketing</title>
       </Head>
       <Stack>
         <Typography mb={2} variant="string" color="text.white">
