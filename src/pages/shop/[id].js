@@ -235,6 +235,7 @@ const Page = ({ product }) => {
                 isShop={true}
                 product={product}
                 variantId={selectedVariant?.uid}
+                positions={product?.positions || []} // Pass positions as a prop
               />
             </StyledBorderBox>
           </Grid>

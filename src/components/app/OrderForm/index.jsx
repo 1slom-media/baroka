@@ -9,8 +9,9 @@ import { LoadingButton } from "@mui/lab";
 import { createUserOrderAction } from "redux-store/orders/create.slice";
 import React from "react";
 import { styled } from "@mui/material";
-import RegionSelect from "components/general/Inputs/RegionSelectInput";
 import PhoneMaskInputReact from "components/general/Inputs/PhoneMaskInputReact";
+import Autocomplete from "@mui/material/Autocomplete"; // Import Autocomplete
+import TextField from "@mui/material/TextField"; // Import TextField
 
 const StyledField = styled(Field)(({ theme }) => ({
   "& .MuiFormHelperText-root": {
@@ -20,7 +21,7 @@ const StyledField = styled(Field)(({ theme }) => ({
   },
 }));
 
-const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn }) => {
+const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn, positions }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user?.data?.user);
@@ -44,7 +45,11 @@ const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn }) => {
         variantId: item._id,
       };
     });
-    const data = { ...values };
+    const data = { ...values }; // Get all values from the form
+    
+    // Add selected position to the data object
+    data.position = values.position; // Include the selected position
+
     if (streamId) {
       data["streamId"] = streamId;
     }
@@ -52,7 +57,7 @@ const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn }) => {
     //   data["userId"] = user._id;
     // }
     if (variantId) {
-      data["orderItems"] = [{ quantity: 1, variantId: variantId }];
+      data["orderItems"] = [{ quantity: 1, variantId: variantId, position: values.position }];
     } else {
       data["orderItems"] = newItems;
     }
@@ -84,17 +89,31 @@ const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn }) => {
           sx={{ bgcolor: "background.paper" }}
         />
       </Grid>
-      {streamId && isRegionOn ? (
-        <Grid item xs={12}>
-          <StyledField
-            component={RegionSelect}
-            label="Viloyatni kiritng"
-            placeholder="Viloyatni kiritng"
-            name="city_id"
-            sx={{ bgcolor: "background.paper" }}
-          />
-        </Grid>
-      ) : null}
+      <Grid item xs={12}>
+        <Field
+          name="position" // Keep the name for form state
+          component={({ input }) => (
+            <Autocomplete
+              {...input}
+              options={positions} // Use the positions array directly
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Position"
+                  variant="outlined"
+                  error={Boolean(input.error)}
+                  helperText={input.error}
+                />
+              )}
+              onChange={(event, newValue) => {
+                input.onChange(newValue); // Update the form value
+              }}
+              // Allow users to enter a custom value if necessary
+              freeSolo // Enable free solo input
+            />
+          )}
+        />
+      </Grid>
       <Grid item xs={12}>
         <Stack>
           <LoadingButton
@@ -109,11 +128,11 @@ const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn }) => {
       </Grid>
     </Grid>
   );
-};
+}
 
 function validate(values) {
   let errors = {};
-  const requiredFields = ["name", "phone"];
+  const requiredFields = ["name", "phone", "position"]; // Include position in required fields
   requiredFields.forEach((field) => {
     if (!values[field] || values[field] === "") {
       errors[field] = "Malumot kiritilmadi!";

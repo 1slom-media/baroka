@@ -33,7 +33,7 @@ const SkuSelect = ({ list, charLength, selectedSkus, selectSKU, skuList }) => {
       });
       return isSelected;
     });
-    console.log(selectedVariant, selectedSkus, skuList, "hello uid");
+
     if (selectedVariant) {
       query["skuid"] = selectedVariant?.uid;
       router.push({ asPath, query });
