@@ -28,7 +28,7 @@ const style = {
 export default function StreamCopyModal({ isOpen, setOpen }) {
   const data = useSelector((state) => state.createdStream.data.data);
   const [copy, setCopy] = React.useState({
-    value: `https://chegirma.uz/oqim/${data?.number}`,
+    value: `https://chegirma.com/oqim/${data?.number}`,
     copied: false,
   });
 
