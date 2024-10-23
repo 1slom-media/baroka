@@ -1,6 +1,5 @@
 import { Divider, Grid, Stack, Typography, Box, styled } from "@mui/material";
 import AppLayout from "components/app/AppLayout";
-import SectionCreator from "components/app/User-profile/SectionCreator";
 import { StyledBorderBox } from "components/app/User-profile/StyledComponents";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +10,6 @@ import Slider from "react-slick";
 import OrderForm from "components/app/OrderForm";
 import { getProductByStreamId } from "api/requests";
 import { useRouter } from "next/router";
-import SkuSelect from "components/app/SKU-SELECT";
 
 const StyledImg = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -43,7 +41,6 @@ const Page = ({ product, stream }) => {
   const router = useRouter();
   const [slider1, setSlider1] = React.useState(null);
   const [slider2, setSlider2] = React.useState(null);
-  const [selectedSkus, setSku] = React.useState([]);
   const products = useSelector((state) => state.productsByCategory.data);
   const selectedVariant = router?.query?.skuid
     ? product?.skuList?.find(
@@ -56,12 +53,13 @@ const Page = ({ product, stream }) => {
     if (product?.category) {
       dispatch(getByCategoryAction(product.category?.uid));
     }
-  }, [product?.category]);
+  }, [product?.category, product]);
 
   return (
     <AppLayout>
       <Stack my={4}>
         <Grid container>
+          {/* block 1 */}
           <Grid item xs={12} md={7}>
             <StyledBorderBox>
               <Slider
@@ -86,7 +84,7 @@ const Page = ({ product, stream }) => {
                 border: "none",
                 "& .slick-track": {
                   width:
-                    product.images?.length > 1 ? "auto !important" : "auto",
+                    product?.images?.length > 1 ? "auto !important" : "auto",
                 },
               }}
             >
@@ -118,6 +116,9 @@ const Page = ({ product, stream }) => {
               )}
             </StyledBorderBox>
           </Grid>
+
+          {/* block 2 */}
+
           <Grid item xs={12} md={5}>
             <Stack px={{ xs: 0, md: 3 }}>
               <StyledBorderBox>
@@ -182,22 +183,17 @@ const Page = ({ product, stream }) => {
                     <Typography variant="string">2 kun ichida</Typography>
                   </Stack>
                 </Stack>
-                <Stack mb={2}>
-                  {product?.characteristics?.map((char) => (
-                    <Stack key={char?.uid} mb={3}>
-                      <Typography mb={1}>
-                        {char?.title[router?.locale]}
-                      </Typography>
-                      <SkuSelect
-                        list={char?.values}
-                        selectSKU={setSku}
-                        selectedSkus={selectedSkus}
-                        charLength={product?.characteristics?.length}
-                        skuList={product?.skuList}
-                      />
-                    </Stack>
-                  ))}
-                </Stack>
+                {product?.characteristics?.length > 0 && (
+                  <Stack mb={2}>
+                    {product?.characteristics?.map((char) => (
+                      <Stack key={char?.uid} mb={3}>
+                        <Typography mb={1}>
+                          {char?.title[router?.locale]}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                )}
               </StyledBorderBox>
               <Typography textAlign="center" variant="h6" my={2}>
                 Buyurtma berish
@@ -216,25 +212,35 @@ const Page = ({ product, stream }) => {
               </StyledBorderBox>
             </Stack>
           </Grid>
+
+          {/* block 3 */}
+
           <Grid item xs={12}>
             <StyledBorderBox py={2}>
-              <Typography variant="h5" color="text.main">
-                {product?.title[router?.locale]}
-              </Typography>
-              <Typography variant="h5" color="info.700">
-                {selectedVariant?.purchasePrice?.toLocaleString()} so&apos;m
-              </Typography>
+              {product?.title && (
+                <Typography variant="h5" color="text.main">
+                  {product?.title[router?.locale]}
+                </Typography>
+              )}
+
+              {selectedVariant?.purchasePrice && (
+                <Typography variant="h5" color="info.700">
+                  {selectedVariant?.purchasePrice.toLocaleString()} so&apos;m
+                </Typography>
+              )}
               <Divider sx={{ borderWidth: "1.3px", my: 2 }} />
               <Typography variant="h6" color="text.main">
                 Mahsulot haqida
               </Typography>
-              <Box sx={{ fontSize: "13px", fontWeight: 500 }}>
-                {ReactHtmlParser(product?.description[router?.locale])}
-              </Box>
+              {product?.description && (
+                <Box sx={{ fontSize: "13px", fontWeight: 500 }}>
+                  {ReactHtmlParser(product?.description[router?.locale])}
+                </Box>
+              )}
             </StyledBorderBox>
           </Grid>
+
         </Grid>
-        <SectionCreator name="O'xshash mahsulotlar" data={products} />
       </Stack>
     </AppLayout>
   );

@@ -46,7 +46,7 @@ export const StyledCopyButton = styled(Button)(({ theme }) => ({
 
 const StyledInputBase = ({ uid }) => {
   const [copy, setCopy] = React.useState({
-    value: `${process.env.NEXT_PUBLIC_BASE_URL_DEV}/oqim/${uid}`,
+    value: `${process.env.NEXT_PUBLIC_BASE_URL}/oqim/${uid}`,
     copied: false,
   });
 
@@ -58,7 +58,7 @@ const StyledInputBase = ({ uid }) => {
   React.useEffect(() => {
     setCopy({
       ...copy,
-      value: `${process.env.NEXT_PUBLIC_BASE_URL_DEV}/oqim/${uid}`,
+      value: `${process.env.NEXT_PUBLIC_BASE_URL}/oqim/${uid}`,
     });
   }, [uid]);
   return (

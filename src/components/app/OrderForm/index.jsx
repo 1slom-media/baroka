@@ -85,7 +85,7 @@ const OrderForm = ({ handleSubmit, streamId, variantId, isRegionOn, positions })
           sx={{ bgcolor: "background.paper" }}
         />
       </Grid>
-      {positions.length > 0 && (
+      {positions?.length > 0 && (
         <Grid item xs={12}>
           <Field
             name="position" // Keep the name for form state

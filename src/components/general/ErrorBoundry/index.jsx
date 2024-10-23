@@ -20,6 +20,7 @@ class ErrorBoundary extends React.Component {
   render() {
     // Check if the error is thrown
     if (this.state.hasError) {
+      
       return (
         <Stack mt={2}>
           <Card1
